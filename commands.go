@@ -330,6 +330,10 @@ func newQemuHelper(c Command) (*qemuHelper, error) {
 		if runtime.GOARCH != "sh4" {
 			q.qemusrc = "/usr/bin/qemu-sh4-static"
 		}
+	case "ppc64":
+		if runtime.GOARCH != "ppc64" {
+			q.qemusrc = "/usr/bin/qemu-ppc64-static"
+		}
 	default:
 		return nil, fmt.Errorf("unsupported qemu architecture %s", c.Architecture)
 	}
